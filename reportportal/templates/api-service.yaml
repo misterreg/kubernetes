@@ -6,6 +6,7 @@ metadata:
   annotations:
     service: {{ $.Values.serviceapi.name | default "api" }}
     infoEndpoint: {{ $.Values.rp.infoEndpoint | default "/info"}}
+    {{ include "reportportal.lb.annotations" . | nindent 4 }}
 spec:
   ports:
   - name: headless
@@ -14,5 +15,5 @@ spec:
     targetPort: 8585
   selector:
     component: {{ include "reportportal.fullname" . }}-api
-  type: ClusterIP
+  type: {{ .Values.serviceType }}
 

@@ -198,3 +198,5 @@ rp:
   infoEndpoint: "/info"
   healthEndpoint: "/health"
 
+serviceType: ClusterIP
+serviceAnnotations:

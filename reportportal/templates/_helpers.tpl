@@ -58,3 +58,9 @@ Create the name of the service account to use
     {{ default "default" .Values.rbac.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
+
+{{- define "reportportal.lb.annotations" -}}
+{{- if .Values.serviceAnnotations }}
+{{ toYaml .Values.serviceAnnotations }}
+{{- end -}}
+{{- end -}}
